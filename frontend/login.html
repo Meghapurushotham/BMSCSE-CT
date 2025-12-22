@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BMSCSE-CT | Login</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="login-body">
+
+    <div class="login-container">
+        <div class="login-card">
+            <img src="bms_logo.jpg" class="logo" alt="BMSCE Logo">
+
+            <h2>BMSCSE-CT</h2>
+            <p class="subtitle">
+                AI Document to Excel Conversion System  
+                <br>BMS College of Engineering
+            </p>
+
+            <input 
+                type="email" 
+                id="email" 
+                placeholder="Enter BMSCE Email ID"
+                required
+            >
+
+            <button onclick="login()">Login</button>
+
+            <p class="note">
+                Allowed emails:  
+                <br><b>@bmsce.ac.in</b>
+            </p>
+
+            <p id="status" class="status"></p>
+        </div>
+    </div>
+    
+ 
+<script src="login.js"></script>
+</body>
+</html>

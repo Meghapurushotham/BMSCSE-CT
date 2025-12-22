@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>BMSCSE-CT Logs</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="header">
+  <img src="bms_logo.jpg">
+  <h2>Usage Logs</h2>
+</div>
+
+<div class="container">
+  <button onclick="loadLogs()">Load Logs</button>
+  <ul id="logList"></ul>
+</div>
+
+<script>
+async function loadLogs() {
+  const role = localStorage.getItem("role");
+
+  const res = await fetch(
+    `http://127.0.0.1:8000/logs?role=${role}`
+  );
+  const data = await res.json();
+
+  const ul = document.getElementById("logList");
+  ul.innerHTML = "";
+
+  data.forEach(log => {
+    const li = document.createElement("li");
+    li.innerText = `${log.time} | ${log.email} | ${log.action}`;
+    ul.appendChild(li);
+  });
+}
+</script>
+
+</body>
+</html>

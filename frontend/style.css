@@ -1,0 +1,314 @@
+/* ---------- GLOBAL ---------- */
+/* body {
+    margin: 0;
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: linear-gradient(135deg, #0b2c4d, #1e5aa8);
+    color: #333;
+} */
+
+/* ---------- GLOBAL ---------- */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: #f4f7fb;
+    color: #2c3e50;
+}
+
+
+/* ---------- LOGIN PAGE ---------- */
+.login-body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-container {
+    width: 100%;
+    max-width: 420px;
+}
+
+.login-card {
+    background: #ffffff;
+    padding: 35px 30px;
+    border-radius: 12px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+    text-align: center;
+}
+
+.logo {
+    width: 90px;
+    margin-bottom: 15px;
+}
+
+.login-card h2 {
+    margin: 10px 0 5px;
+    color: #0b2c4d;
+}
+
+.subtitle {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 25px;
+}
+
+.login-card input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+}
+
+.login-card input:focus {
+    outline: none;
+    border-color: #1e5aa8;
+}
+
+.login-card button {
+    width: 100%;
+    padding: 12px;
+    background: #1e5aa8;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.login-card button:hover {
+    background: #154a8a;
+}
+
+.note {
+    font-size: 12px;
+    color: #777;
+    margin-top: 15px;
+}
+
+.status {
+    margin-top: 10px;
+    font-size: 13px;
+    color: red;
+}
+
+/* ---------- HEADER ---------- */
+/* .top-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #0b2c4d;
+    color: white;
+    padding: 12px 25px;
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.header-left img {
+    width: 55px;
+}
+
+.header-left h2 {
+    margin: 0;
+    font-size: 20px;
+}
+
+.header-left span {
+    font-size: 13px;
+    opacity: 0.9;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-size: 14px;
+}
+
+.logout-btn {
+    background: #e74c3c;
+    border: none;
+    padding: 6px 12px;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.logout-btn:hover {
+    background: #c0392b;
+}*/
+
+/* ---------- HEADER ---------- */
+.top-header {
+    background: linear-gradient(135deg, #0b2c4d, #1e5aa8);
+    color: white;
+    padding: 18px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.header-left img {
+    width: 70px;
+}
+
+.header-left h2 {
+    margin: 0;
+    font-weight: 600;
+    font-size: 22px;
+    text-align: center;
+}
+
+.header-left span {
+    font-size: 14px;
+    opacity: 0.9;
+    display: block;
+    text-align: center;
+}
+
+.header-right {
+    margin-top: 10px;
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    font-size: 14px;
+}
+
+.logout-btn {
+    background: #e74c3c;
+    border: none;
+    padding: 6px 14px;
+    color: white;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 13px;
+}
+
+.logout-btn:hover {
+    background: #c0392b;
+}
+
+
+/* ---------- MAIN LAYOUT ---------- */
+.main-container {
+    max-width: 1100px;
+    margin: 30px auto;
+    padding: 0 20px;
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: 25px;
+}
+
+/* ---------- CARDS ---------- */
+.card {
+    background: white;
+    border-radius: 12px;
+    padding: 22px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+.card h3 {
+    margin-top: 0;
+    color: #0b2c4d;
+    font-weight: 500;
+}
+
+
+.chat-message {
+    padding: 8px 12px;
+    border-radius: 10px;
+    margin-bottom: 8px;
+    max-width: 85%;
+    font-size: 14px;
+}
+
+.chat-user {
+    background: #dfefff;
+    align-self: flex-end;
+}
+
+.chat-agent {
+    background: #f1f1f1;
+}
+
+/* ---------- CHAT ---------- */
+.chat-box {
+    height: 300px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 10px;
+    overflow-y: auto;
+    background: #fafafa;
+    margin-bottom: 10px;
+}
+
+.chat-input {
+    display: flex;
+    gap: 10px;
+}
+
+.chat-input input {
+    flex: 1;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.chat-input button {
+    background: #1e5aa8;
+    border: none;
+    color: white;
+    padding: 10px 16px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.chat-input button:hover {
+    background: #154a8a;
+}
+
+/* ---------- UPLOAD ---------- */
+.upload-card input[type="file"] {
+    margin: 15px 0;
+}
+
+.primary-btn {
+    width: 100%;
+    padding: 12px;
+    background: #1e5aa8;
+    border: none;
+    color: white;
+    font-size: 15px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.primary-btn:hover {
+    background: #154a8a;
+}
+
+.status-text {
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+.download-link {
+    display: none;
+    margin-top: 12px;
+    text-decoration: none;
+    color: #1e5aa8;
+    font-weight: bold;
+}

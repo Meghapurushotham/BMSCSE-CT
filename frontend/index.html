@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>BMSCSE-CT</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="header">
+  <img src="bms_logo.jpg" alt="BMSCE Logo">
+  <h2>BMSCSE-CT | AI Document Converter</h2>
+</div>
+
+<div class="container">
+  <div class="chat-box" id="chatBox"></div>
+
+  <input type="text" id="userInput" placeholder="Type your task here..." />
+  <button onclick="sendMessage()">Send</button>
+
+  <div class="upload-box">
+    <input type="file" id="files" multiple />
+    <button onclick="uploadFiles()">Convert to Excel</button>
+  </div>
+
+  <p id="status"></p>
+  <a id="downloadLink" target="_blank">Download Excel</a>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>

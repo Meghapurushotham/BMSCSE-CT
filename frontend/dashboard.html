@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>BMSCSE-CT Admin Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="header">
+  <img src="bms_logo.jpg">
+  <h2>BMSCSE-CT | Admin Dashboard</h2>
+</div>
+
+<div class="container">
+  <h3>📊 Overview</h3>
+  <p><b>Total Users:</b> <span id="totalUsers"></span></p>
+  <p><b>Total Conversions:</b> <span id="totalActions"></span></p>
+
+  <h3>👥 Users by Role</h3>
+  <ul id="rolesList"></ul>
+
+  <h3>🔥 Most Active Users</h3>
+  <ul id="topUsers"></ul>
+
+  <h3>🕒 Recent Activity</h3>
+  <ul id="recentLogs"></ul>
+</div>
+
+<script>
+async function loadDashboard() {
+  const role = localStorage.getItem("role");
+
+  const res = await fetch(
+    `http://127.0.0.1:8000/admin/dashboard?role=${role}`
+  );
+
+  if (res.status !== 200) {
+    alert("Access denied");
+    return;
+  }
+
+  const data = await res.json();
+
+  document.getElementById("totalUsers").innerText = data.total_users;
+  document.getElementById("totalActions").innerText = data.total_actions;
+
+  const rolesList = document.getElementById("rolesList");
+  rolesList.innerHTML = "";
+  data.users_by_role.forEach(r => {
+    const li = document.createElement("li");
+    li.innerText = `${r.role} : ${r.count}`;
+    rolesList.appendChild(li);
+  });
+
+  const topUsers = document.getElementById("topUsers");
+  topUsers.innerHTML = "";
+  data.top_users.forEach(u => {
+    const li = document.createElement("li");
+    li.innerText = `${u.email} (${u.count} actions)`;
+    topUsers.appendChild(li);
+  });
+
+  const recentLogs = document.getElementById("recentLogs");
+  recentLogs.innerHTML = "";
+  data.recent_logs.forEach(l => {
+    const li = document.createElement("li");
+    li.innerText = `${l.time} | ${l.email} | ${l.action}`;
+    recentLogs.appendChild(li);
+  });
+}
+
+loadDashboard();
+</script>
+
+</body>
+</html>
