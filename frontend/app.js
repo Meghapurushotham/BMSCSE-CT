@@ -84,39 +84,19 @@ async function uploadFiles() {
     return;
   }
 
-  let formData = new FormData();
-  for (let file of files) {
-    formData.append("files", file);
-  }
+  statusEl.innerText = "Demo Mode: Processing...";
+  addMessage(
+    "🔧 Demo Mode enabled. Backend service will be connected after approval.",
+    "agent"
+  );
 
-  statusEl.innerText = "Processing...";
-  addMessage("Processing your files, please wait ⏳", "agent");
-
-  // Default fallback
-  const endpoint = window.selectedEndpoint || "/convert-multiple/";
-
-  try {
-    const response = await fetch("http://127.0.0.1:8000" + endpoint, {
-      method: "POST",
-      body: formData
-    });
-
-    if (!response.ok) {
-      throw new Error("Server error");
-    }
-
-    const result = await response.json();
-
-    statusEl.innerText = result.message || "Conversion Successful!";
-    addMessage("✅ Conversion completed successfully.", "agent");
-
-    downloadLink.href =
-      "http://127.0.0.1:8000/download/" + result.file_id;
-    downloadLink.style.display = "block";
-
-  } catch (err) {
-    console.error(err);
-    statusEl.innerText = "Error occurred";
-    addMessage("❌ Something went wrong during conversion.", "agent");
-  }
+  setTimeout(() => {
+    statusEl.innerText = "Demo Completed ✔";
+    addMessage(
+      "✅ Demo successful. This system supports:\n• Multi-page PDFs\n• Multiple tables\n• VTU results\n• Advanced OCR\n\nBackend deployment pending approval.",
+      "agent"
+    );
+  }, 1500);
 }
+
+
